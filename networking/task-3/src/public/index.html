@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Network Health Dashboard</title></head>
+<body>
+<h1>Network Health Dashboard</h1>
+<pre id="stats"></pre>
+<script>
+    const statsEl = document.getElementById('stats');
+    const evtSource = new EventSource('/events');
+    evtSource.onmessage = (event) => {
+        const stats = JSON.parse(event.data);
+        statsEl.textContent = JSON.stringify(stats, null, 2);
+    };
+</script>
+</body>
+</html>

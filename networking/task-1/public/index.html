@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Device Discovery</title>
+</head>
+<body>
+<h1>Welcome!</h1>
+<p>This device is being registered...</p>
+<script>
+    // Try to auto-fetch hostname via browser hint
+    const hostname = window.navigator.userAgent;
+
+    fetch('/register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name: hostname })
+})
+    .then(res => res.json())
+    .then(data => {
+    document.body.innerHTML += `<p>Device registered successfully!</p>`;
+})
+    .catch(err => {
+    document.body.innerHTML += `<p>Error registering device</p>`;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "file-broadcast-system",
+  "version": "1.0.0",
+  "description": "UDP file metadata broadcaster with TCP file transfer",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "macaddress": "^0.5.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "typescript": "^5.3.3"
+  }
+}
